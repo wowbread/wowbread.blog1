@@ -64,7 +64,7 @@ function activateLightMode(){
   runtime_unit: '天',
   copyright: undefined,
   copy_copyright_js: false,
-  ClickShowText: undefined,
+  ClickShowText: {"text":"尘,埃,慕,雪,落,长,堤","fontSize":"15px"},
   medium_zoom: 'false',
   Snackbar: undefined
   
@@ -74,17 +74,24 @@ function activateLightMode(){
   $('.full_page .nav_bg').css('background-attachment', 'fixed');
 }
 
-</script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script type="text/javascript" src="http://yijuzhan.com/api/word.php?m=js"></script><script>var con = str[0];
-var author = "出自 " + str[1];
-var sub = ''.length == 0  ? new Array() : ''.split(",");
-var both = sub.unshift(con,author)
-var typed = new Typed(".subtitle", {
-strings: sub,
-startDelay: 300,
-typeSpeed: 100,
-loop: true,
-backSpeed: 50
-});</script><script>//首頁fullpage
+</script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script><script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script><script>fetch('https://v1.hitokoto.cn')
+.then(function (res){
+  return res.json();
+})
+.then(function (data) {
+  var sub = ''.length == 0  ? new Array() : ''.split(",");
+  var both = sub.unshift(data.hitokoto)  
+  var typed = new Typed(".subtitle", {
+  strings: sub,
+  startDelay: 300,
+  typeSpeed: 100,
+  loop: true,
+  backSpeed: 50
+  });
+})
+.catch(function (err) {
+  console.error(err);
+})</script><script>//首頁fullpage
 function alignContent() {
   for (var n = $(window).height(), e = document.querySelectorAll(".full_page"), i = 0; i < e.length; i++) 
     e[i].style.height = n + "px";
@@ -97,4 +104,4 @@ alignContent();
 
 $(window).bind("resize", function () {
   alignContent()
-})</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/click_heart.js"></script></body></html>
+})</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/ClickShowText.js"></script></body></html>
